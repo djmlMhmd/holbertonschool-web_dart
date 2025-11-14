@@ -1,8 +1,6 @@
 void main(List<String> args) {
-  /*
-  Write Your code below 
-   */
-  assert(args.length == 2, 'Usage: dart 5-assertion.dart <number>');
-  assert(int.parse(args[0]) == int.parse(args[1]), 'Arguments must be equal');
-  print('Assertion passed');
+  assert(args.isNotEmpty, 'Usage: dart 5-assertion.dart <score>');
+  int score = int.parse(args[0]);
+  assert(score >= 80, 'The score must be bigger or equal to 80');
+  print('You Passed');
 }
