@@ -1,3 +1,4 @@
 void main() {
-  print(98);
+  int number = 98;
+  print('$number Battery street');
 }
