@@ -4,7 +4,12 @@ class User {
   int age;
   double height;
 
-  User({required this.id, required this.name, required this.age, required this.height});
+  User({
+    required this.id,
+    required this.name,
+    required this.age,
+    required this.height,
+  });
 
   Map<String, dynamic> toJson() {
     return {
@@ -26,6 +31,7 @@ class User {
 
   @override
   String toString() {
-    return "User(id : $id ,name: $name,  age: $age, height: $height)";
+    // Attention aux espaces pour correspondre exactement à l’output attendu
+    return "User(id : $id ,name: $name, age: $age, height: $height)";
   }
 }
