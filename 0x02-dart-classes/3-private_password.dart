@@ -3,10 +3,8 @@ class Password {
 
   Password({required String password}) : _password = password;
 
-  // Getter for password
   String get password => _password;
 
-  // Setter for password
   set password(String newPass) {
     _password = newPass;
   }
@@ -25,6 +23,6 @@ class Password {
 
   @override
   String toString() {
-    return "Your Password is $_password";
+    return "Your Password is: $_password";
   }
 }
