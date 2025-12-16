@@ -10,13 +10,25 @@ Future<double> calculateTotal() async {
 
     // Get user orders
     final String ordersData = await fetchUserOrders(userId);
-    final List<dynamic> orders = jsonDecode(ordersData);
+    final dynamic ordersDecoded = jsonDecode(ordersData);
+    
+    if (ordersDecoded == null || ordersDecoded is! List) {
+      return -1;
+    }
+    
+    final List<dynamic> orders = ordersDecoded;
 
     // Calculate total price
     double total = 0.0;
     for (var product in orders) {
       final String priceData = await fetchProductPrice(product);
-      final double price = jsonDecode(priceData);
+      final dynamic priceDecoded = jsonDecode(priceData);
+      
+      if (priceDecoded == null) {
+        return -1;
+      }
+      
+      final double price = (priceDecoded as num).toDouble();
       total += price;
     }
 

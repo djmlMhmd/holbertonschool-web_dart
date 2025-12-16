@@ -10,10 +10,12 @@ Future<void> printRmCharacters() async {
       
       if (response.statusCode == 200) {
         final Map<String, dynamic> data = jsonDecode(response.body);
-        final List<dynamic> characters = data['results'];
+        final List<dynamic>? characters = data['results'];
         
-        for (var character in characters) {
-          print(character['name']);
+        if (characters != null) {
+          for (var character in characters) {
+            print(character['name']);
+          }
         }
         
         final Map<String, dynamic>? info = data['info'];
